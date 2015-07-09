@@ -9,10 +9,9 @@ RUN rm -rf /tmp/tomcat.zip
 RUN mkdir -p /data
 RUN mv /tmp/apache-tomcat-$TOMCAT_VERSION /data/tomcat
 RUN chmod 777 /data/tomcat/bin/*.sh
-ADD conf/tomcat/tomcat-users.xml /data/tomcat/conf/tomcat-users.xml
 
 #install make
-RUN yum -y install gcc automake autoconf libtool make
+#RUN yum -y install gcc automake autoconf libtool make
 #install openssl openssl-dev apr-devel
 RUN yum -y install openssl openssl-devel apr-devel
 #install tomcat-native
