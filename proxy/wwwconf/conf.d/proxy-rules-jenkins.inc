@@ -1,10 +1,9 @@
-<Proxy balancer://lb>
-BalancerMember http://jenkins.localhost:8080 keepalive=On
-ProxySet lbmethod=bybusyness
-ProxySet stickysession=JSESSIONID|jsessionid
-ProxySet scolonpathdelim=On
+AllowEncodedSlashes On
+ProxyRequests Off
+KeepAlive Off
+<Proxy *>
+  Order allow,deny
+  Allow from all
 </Proxy>
-
-ProxyPass / balancer://lb/
-ProxyPassReverse / balancer://lb/
-
+ProxyPass / http://jenkins.localhost:8080/ nocanon
+ProxyPassReverse / http://jenkins.localhost:8080/
