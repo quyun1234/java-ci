@@ -1,4 +1,4 @@
-FROM       kuo.io/maven:3
+FROM       kuo.io/tomcat:7
 MAINTAINER Niko.G <im@kuo.io> 
 
 RUN mkdir -p /data
@@ -9,3 +9,5 @@ WORKDIR /data/javaweb-hello-world
 RUN mvn install
 
 WORKDIR /
+
+RUN mv /data/javaweb-hello-world/target/*.war /data/
