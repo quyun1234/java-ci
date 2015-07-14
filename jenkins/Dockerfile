@@ -6,7 +6,7 @@ ENV JENKINS_VERSION 1.609.1
 ENV JENKINS_UC https://updates.jenkins-ci.org
 ENV COPY_REFERENCE_FILE_LOG /var/log/copy_reference_file.log
 
-RUN useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash jenkins
+#RUN useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash jenkins
 
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
@@ -16,7 +16,7 @@ RUN curl -fL http://mirrors.jenkins-ci.org/war-stable/$JENKINS_VERSION/jenkins.w
     chown -R jenkins "$JENKINS_HOME" /usr/share/jenkins/ref && \
     touch $COPY_REFERENCE_FILE_LOG && chown jenkins.jenkins $COPY_REFERENCE_FILE_LOG
 
-USER jenkins
+#USER jenkins
 
 VOLUME /var/jenkins_home
 
