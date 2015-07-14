@@ -30,4 +30,5 @@ RUN chmod +x /data/bin/*.sh
 
 EXPOSE 8080 8443
 
-ENTRYPOINT ["/data/bin/start-tomcat.sh"]
+CMD ["/data/bin/start-tomcat.sh"]
+

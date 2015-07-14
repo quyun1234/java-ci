@@ -1,1 +1,1 @@
-docker build -t kuo.io/hello:maven hello-maven
+docker build -t kuo.io/hello:tomcat hello-tomcat
