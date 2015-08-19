@@ -28,6 +28,8 @@ ENV LD_LIBRARY_PATH /usr/local/apr/lib
 ADD bin /data/bin
 RUN chmod +x /data/bin/*.sh
 
+ADD conf/tomcat-users.xml ${CATALINA_HOME}/conf/tomcat-users.xml
+
 EXPOSE 8080 8443
 
 CMD ["/data/bin/start-tomcat.sh"]

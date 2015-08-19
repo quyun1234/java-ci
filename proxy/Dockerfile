@@ -4,10 +4,12 @@ MAINTAINER Niko.G <niko.guo@gmail.com>
 RUN mkdir -p /data/wwwconf
 ADD wwwconf/conf.d /data/wwwconf/conf.d
 ADD wwwconf/conf/httpd.conf /etc/httpd/conf/httpd.conf
+ADD wwwconf/conf/ssl.conf /etc/httpd/conf.d/ssl.conf
 
 RUN mkdir -p /data/wwwroot/hub.kuo.io
 RUN mkdir -p /data/wwwroot/jenkins.kuo.io
 RUN mkdir -p /data/wwwroot/console.kuo.io
+RUN mkdir -p /data/wwwroot/tomcat.kuo.io
 
 RUN mkdir -p /data/logs/httpd
 
