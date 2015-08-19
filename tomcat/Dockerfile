@@ -16,12 +16,16 @@ RUN yum -y install openssl openssl-devel apr-devel
 RUN cp /data/tomcat/bin/tomcat-native.tar.gz /tmp/tomcat-native.tar.gz 
 RUN tar zxvf /tmp/tomcat-native.tar.gz -C /tmp; rm -rf /tmp/tomcat-native.tar.gz
 RUN mv /tmp/tomcat-native-*-src /tmp/tomcat-native
+
 WORKDIR /tmp/tomcat-native/jni/native
 RUN chmod +x ./configure
 RUN chmod +x ./build/*.sh
 RUN ./configure --with-apr=/usr/bin/apr-1-config --with-java-home=$JAVA_HOME --with-ssl=yes
 RUN make & make install
+
+WORKDIR /
 RUN rm -rf /tmp/tomcat-native
+
 #config apr
 ENV LD_LIBRARY_PATH /usr/local/apr/lib
 
